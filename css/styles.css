@@ -60,7 +60,7 @@ section {
     min-height: 80vh;
 }
 
-a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active, button:visited  {
+a, a:hover, a:focus, a:active a:visited, button, button:hover, button:focus, button:active, button:visited  {
      text-decoration: none;
      color: inherit;
      background-color: inherit;
