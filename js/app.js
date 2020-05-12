@@ -17,15 +17,6 @@
  * Define Global Variables
  *
 */
-// let activeSection = 0; //TODO: update to the active content box
-// let navBarNames = []; //TODO: udpate to the dynamic nav navBarList
-// let navBarRefs = []; //for section ID's to link the nav bar to
-// let scrollUpText = 0; //TODO: text to be displayed to scroll back up, display if header is not visible
-// let isHeaderVisible = true; //TODO: if header not visible show top of page button
-// let navLinkWasClicked = true; //TODO: is this boolean or the button that was clicked
-// let contentSectionIdArray = []; //done
-// let navBarNames = []; //TODO: udpate to the dynamic nav navBarList
-// let innerStringforNav = '';
 let navBarRefs = getAttributeIntoArray('section', 'id');
 let navBarNames = getTextOfTag(navBarRefs, '#', 'h2');
 let innerStringforNav = buildNavString(navBarNames, navBarRefs, '#');
@@ -130,7 +121,6 @@ function setActiveClass(section) {
 
 function addClickListener(element, ref, ev) {
   const anchorRef = element.querySelector('a').getAttribute(ref);
-  console.log(anchorRef);
   element.addEventListener(ev, function () {
     scrollToAction(anchorRef);
   });
@@ -144,9 +134,7 @@ function scrollToAction(anchorRef) {
 
 function placeClickListenerOnSection(section) {
   let nodeList = document.querySelectorAll(section);
-  console.log(nodeList);
   for (let i = 0; i < nodeList.length; i++ ) {
-    console.log(nodeList[i]);
     addClickListener(nodeList[i], 'href', 'click');
   }
 }
