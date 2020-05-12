@@ -29,9 +29,7 @@
 let navBarRefs = getAttributeIntoArray('section', 'id');
 let navBarNames = getTextOfTag(navBarRefs, '#', 'h2');
 let innerStringforNav = buildNavString(navBarNames, navBarRefs, '#');
-let text = testFunction();
 
-testFunction = () => console.log("hello");
 
 /**
  * End Global Variables
