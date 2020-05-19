@@ -139,9 +139,6 @@ function lastClickedClassAdd(button) {
   const elementToAdd = button.querySelector('a');
   const elementToDelete = document.querySelector('.lastClicked');
   const elementToAddChild = button
-  console.log(elementToAdd);
-  console.log(elementToAddChild);
-  console.log(elementToDelete);
   elementToAdd.classList.toggle('lastClicked');
   if (elementToDelete != null) {
     elementToDelete.classList.toggle('lastClicked');
@@ -172,10 +169,10 @@ function showHeader(call) {
 function hideHeader(call) {
   const element = document.querySelector(call);
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    console.log('start timer');
+    // console.log('start timer');
     let timer = window.setTimeout(function() {
       element.style.display = "none";
-      console.log('timeout');
+      // console.log('timeout');
     } , 3000);
     document.addEventListener('scroll', function () {
       window.clearTimeout(timer)
