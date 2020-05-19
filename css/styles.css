@@ -98,7 +98,7 @@ a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active
 }
 
 .menu__link.lastClicked {
-    background-color: blue;
+    background-color: #333;
 }
 
 /* Header Styles */
