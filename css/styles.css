@@ -60,7 +60,7 @@ section {
     min-height: 80vh;
 }
 
-a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active, button:visited  {
+a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active  {
      text-decoration: none;
      color: inherit;
      background-color: inherit;
@@ -79,7 +79,7 @@ a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active
     display: inline-block;
 }
 
-.menu__link, .menu__link:visited, .menu__link:link, #navbar__top, #navbar__top:visited {
+.menu__link .lastClicked, .menu__link:link, #navbar__top {
     display: block;
     padding: 1em;
     font-weight: bold;
@@ -95,6 +95,10 @@ a, a:hover, a:focus, a:active, button, button:hover, button:focus, button:active
     background-color: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+
+.menu__link.lastClicked {
+    background-color: blue;
 }
 
 /* Header Styles */

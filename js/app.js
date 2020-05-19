@@ -124,12 +124,28 @@ function addClickListener(element, ref, ev) {
   element.addEventListener(ev, function () {
     scrollToAction(anchorRef);
   });
+  element.addEventListener(ev, function () {
+    lastClickedClassAdd(element);
+  });
 }
 
 function scrollToAction(anchorRef) {
   const element = document.querySelector(anchorRef);
   event.preventDefault();
   element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+}
+
+function lastClickedClassAdd(button) {
+  const elementToAdd = button.querySelector('a');
+  const elementToDelete = document.querySelector('.lastClicked');
+  const elementToAddChild = button
+  console.log(elementToAdd);
+  console.log(elementToAddChild);
+  console.log(elementToDelete);
+  elementToAdd.classList.toggle('lastClicked');
+  if (elementToDelete != null) {
+    elementToDelete.classList.toggle('lastClicked');
+  }
 }
 
 function placeClickListenerOnSection(section) {
@@ -145,6 +161,26 @@ function topFunction() {
   document.documentElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   // document.body.scrollTop = 0; // For Safari
   // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// make element visible on scroll
+function showHeader(call) {
+  const element = document.querySelector(call);
+  element.style.display = "block";
+}
+
+function hideHeader(call) {
+  const element = document.querySelector(call);
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    console.log('start timer');
+    let timer = window.setTimeout(function() {
+      element.style.display = "none";
+      console.log('timeout');
+    } , 3000);
+    document.addEventListener('scroll', function () {
+      window.clearTimeout(timer)
+    });
+  }
 }
 
 /**
@@ -165,10 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
   placeClickListenerOnSection('#navbar__list li');
 });
 
-// document.querySelector('#navbar__list').addEventListener('click', function () {
-//   document.querySelector('#section3').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-// });
-
 // Set sections as active
 
 document.addEventListener('scroll', function () {
@@ -178,4 +210,13 @@ document.addEventListener('scroll', function () {
 // on scroll show/hide back to top navbar__button
 document.addEventListener('scroll', function () {
   scrollTopButtonSet('#navbar__top')
+});
+
+
+document.addEventListener('scroll', function () {
+  showHeader('header')
+});
+
+document.addEventListener('scroll', function () {
+  hideHeader('header')
 });
